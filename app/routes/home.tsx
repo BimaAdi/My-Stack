@@ -1,3 +1,5 @@
+import Navbar from "~/components/shared/Navbar";
+
 export function meta() {
 	return [{ title: "My Stack" }];
 }
@@ -5,7 +7,10 @@ export function meta() {
 export default function Home() {
 	return (
 		<main>
-			<h1 className="text-xl">Hello</h1>
+			<Navbar />
+			<div className="p-4">
+				<h1 className="text-xl">Body</h1>
+			</div>
 		</main>
 	);
 }
