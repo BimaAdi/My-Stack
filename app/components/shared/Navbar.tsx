@@ -1,7 +1,20 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { authClient } from "~/lib/auth-client";
 import { Avatar, AvatarFallback } from "../ui/avatar";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 export default function Navbar({ isSignIn = false }: { isSignIn?: boolean }) {
+	const navigate = useNavigate();
+	const signOut = async () => {
+		await authClient.signOut();
+		navigate("/signin");
+	};
+
 	return (
 		<nav className="w-screen flex justify-between bg-black text-white p-4">
 			<div className="text-xl">
@@ -11,9 +24,23 @@ export default function Navbar({ isSignIn = false }: { isSignIn?: boolean }) {
 			</div>
 			<ul className="flex justify-end gap-4">
 				{isSignIn ? (
-					<Avatar className="bg-white text-black hover:cursor-pointer">
-						<AvatarFallback>SU</AvatarFallback>
-					</Avatar>
+					<DropdownMenu>
+						<DropdownMenuTrigger>
+							<Avatar className="bg-white text-black hover:cursor-pointer">
+								<AvatarFallback>SU</AvatarFallback>
+							</Avatar>
+						</DropdownMenuTrigger>
+						<DropdownMenuContent>
+							<DropdownMenuItem
+								className="hover:cursor-pointer"
+								onClick={async () => {
+									await signOut();
+								}}
+							>
+								Logout
+							</DropdownMenuItem>
+						</DropdownMenuContent>
+					</DropdownMenu>
 				) : (
 					<>
 						<li>

@@ -2,8 +2,6 @@
 
 A modern, production-ready template for building full-stack React applications using React Router.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
 ## Features
 
 - 🚀 Server-side rendering
@@ -13,6 +11,13 @@ A modern, production-ready template for building full-stack React applications u
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
 - 📖 [React Router docs](https://reactrouter.com/)
+- 📮 Database connection using Drizzle and Postgres
+- 🔑 Authentication using Better Auth
+
+## Requirement
+- node v22
+- pnpm v9
+- postgres v16
 
 ## Getting Started
 
@@ -21,7 +26,15 @@ A modern, production-ready template for building full-stack React applications u
 Install the dependencies:
 
 ```bash
-npm install
+pnpm install
+```
+
+### Setup env
+
+Setup env based on your environtment. Copy .env.example to .env then set it up based on your development environtment.
+
+```bash
+cp .env.example .env
 ```
 
 ### Development
@@ -29,7 +42,7 @@ npm install
 Start the development server with HMR:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Your application will be available at `http://localhost:5173`.
@@ -39,7 +52,7 @@ Your application will be available at `http://localhost:5173`.
 Create a production build:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ## Deployment

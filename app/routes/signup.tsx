@@ -8,7 +8,7 @@ export function meta() {
 export default function SignUpPage() {
 	return (
 		<main>
-			<Navbar isSignIn={true} />
+			<Navbar />
 			<div className="w-screen min-h-[600px] grid place-items-center">
 				<SignUpCard />
 			</div>
