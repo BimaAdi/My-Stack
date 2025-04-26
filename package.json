@@ -5,6 +5,7 @@
   "scripts": {
     "build": "react-router build",
     "check": "biome check --write ./app/**",
+    "cli": "tsx cli.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
@@ -42,6 +43,7 @@
     "@types/pg": "^8.11.13",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
+    "commander": "^13.1.0",
     "drizzle-kit": "^0.31.0",
     "react-router-devtools": "^1.1.0",
     "tailwindcss": "^4.0.0",

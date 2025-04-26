@@ -19,6 +19,20 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 		autoSignIn: false,
-		// requireEmailVerification: true,
+		requireEmailVerification: true,
+		sendResetPassword: async ({ user, url, token }) => {
+			console.warn("send email reset password not yet implemented");
+			console.log("user: ", user);
+			console.log("url: ", url);
+			console.log("token: ", token);
+		},
+	},
+	emailVerification: {
+		sendVerificationEmail: async ({ user, url, token }, _request) => {
+			console.warn("send verification email not yet implemented");
+			console.log("user: ", user);
+			console.log("url: ", url);
+			console.log("token: ", token);
+		},
 	},
 });
