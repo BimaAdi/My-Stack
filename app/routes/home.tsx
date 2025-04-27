@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import Navbar from "~/components/shared/Navbar";
 import { auth } from "~/lib/auth.server";
 import type { Route } from "./+types/home";
@@ -21,7 +22,11 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 		<main>
 			<Navbar isSignIn={!!session} />
 			<div className="p-4">
-				<h1 className="text-xl">Body</h1>
+				<h1 className="text-xl">
+					<NavLink className="underline text-blue-500" to={"/todo"}>
+						Todo Example
+					</NavLink>
+				</h1>
 			</div>
 		</main>
 	);

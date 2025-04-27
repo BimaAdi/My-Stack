@@ -22,8 +22,16 @@ export default function SignInCard() {
 					password: value.password,
 				},
 				{
-					onSuccess: () => {
-						navigate("/");
+					onSuccess: async () => {
+						const redirect = new URLSearchParams(window.location.search).get(
+							"redirect",
+						);
+
+						if (redirect) {
+							await navigate(redirect);
+						} else {
+							await navigate("/");
+						}
 					},
 					onError: (ctx) => {
 						setErrorMessage(ctx.error.message);
