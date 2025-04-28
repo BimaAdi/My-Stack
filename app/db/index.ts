@@ -1,5 +1,7 @@
 import "dotenv/config";
-import { type NodePgDatabase, drizzle } from "drizzle-orm/node-postgres";
+import { type PostgresJsDatabase, drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 
-export const db = drizzle(process.env.DATABASE_URL as string);
-export type dbType = NodePgDatabase<Record<string, never>>;
+export const queryClient = postgres(process.env.DATABASE_URL as string);
+export const db = drizzle({ client: queryClient });
+export type dbType = PostgresJsDatabase<Record<string, never>>;
