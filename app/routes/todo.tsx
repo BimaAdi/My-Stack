@@ -4,7 +4,7 @@ import {
 	createServerValidate,
 } from "@tanstack/react-form/remix";
 import { useEffect } from "react";
-import { Form, redirect } from "react-router";
+import { Form, redirect, useActionData, useLoaderData } from "react-router";
 import { z } from "zod";
 import Navbar from "~/components/shared/Navbar";
 import { Button } from "~/components/ui/button";
@@ -97,10 +97,9 @@ const createTodoSchema = z.object({
 	intent: z.literal("create"),
 });
 
-export default function TodoPage({
-	loaderData,
-	actionData,
-}: Route.ComponentProps) {
+export default function TodoPage() {
+	const loaderData = useLoaderData<typeof loader>();
+	const actionData = useActionData<typeof action>();
 	const createTodoForm = useForm({
 		...createTodoFormOpt,
 		validators: {
