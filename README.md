@@ -13,10 +13,12 @@ A modern, production-ready template for building full-stack React applications u
 - 📖 [React Router docs](https://reactrouter.com/)
 - 📮 Database connection using Drizzle and Postgres
 - 🔑 Authentication using Better Auth
+- ☑️ Testing using Playwright
+
 
 ## Requirement
 - node v22
-- pnpm v9
+- pnpm v10
 - postgres v16
 
 ## Getting Started
@@ -35,6 +37,21 @@ Setup env based on your environtment. Copy .env.example to .env then set it up b
 
 ```bash
 cp .env.example .env
+```
+
+### Testing
+
+Testing using playwright. Install playwright depedencies.
+
+```bash
+pnpm exec playwright install
+sudo pnpm exec playwright install-deps
+```
+
+Run test
+
+```bash
+pnpm run test
 ```
 
 ### Development
